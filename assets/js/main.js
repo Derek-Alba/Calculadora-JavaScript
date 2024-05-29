@@ -5,7 +5,7 @@ botones.forEach(boton => {
     boton.addEventListener('click', () => {
         const botonApretado = boton.textContent
 
-        if (boton.textContent === 'Limpiar') {
+        if (boton.textContent === 'C') {
             pantalla.textContent = '0'
             
         }
