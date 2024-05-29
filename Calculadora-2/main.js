@@ -1,92 +1,142 @@
 const btnUno = document.querySelector('#uno')
 const btnDos = document.querySelector('#dos')
 const btnTres = document.querySelector('#tres')
-const btnCuatro = document.querySelector('#suma')
+const btnSuma = document.querySelector('#suma')
 const btnCinco = document.querySelector('#cuatro ')
 const btnSeis = document.querySelector('#cinco')
 const btnSiete = document.querySelector('#seis')
-const btnOcho = document.querySelector('#multi')
+const btnMulti = document.querySelector('#multi')
 const btnNueve = document.querySelector('#siete')
-const btnDies = document.querySelector('#ocho')
+const btnDiez = document.querySelector('#ocho')
 const btnOnce = document.querySelector('#nueve')
-const btnDoce = document.querySelector('#divi')
+const btnDivi = document.querySelector('#divi')
 const btnTrece = document.querySelector('#cero')
-const btnCatocer = document.querySelector('#limpiar')
-const btnQuince = document.querySelector('#igual')
-
-
-btnUno.addEventListener ('click', () => {
-   const valor= btnUno.textContent
-})
-    const suma = () => {
-        valor 
-    }
-
-
-
-
+const btnLimpiar = document.querySelector('#limpiar')
+const btnIgual = document.querySelector('#igual')
+const btnResta = document.querySelector('#resta')
+const pantalla = document.querySelector('#consola')
+const op = document.querySelectorAll('.op')
 let numeroA;
 let numeroB;
-
-function btn_suma(caracter){
-    numeroA = valorVisor;
-    operaciones = "+";
-    
-    limpar();
-}
+let operaciones;
+let numeroC;
 
 
-function btn_multiplica(caracter){
-  numeroA = valorVisor;
-  operaciones = "*";
+btnUno.addEventListener('click', () => {
+  pantalla.value += '1'
+
+})
+
+btnDos.addEventListener('click', () => {
+  pantalla.value += '2'
+
+
+})
+
+btnTres.addEventListener('click', () => {
+  pantalla.value += '3'
+
+})
+
+btnSuma.addEventListener('click', () => {
+  numeroA = pantalla.value
+  pantalla.value = ''
+  operaciones = 1
+
+})
+
+btnCinco.addEventListener('click', () => {
+  pantalla.value += '4'
+
+})
+
+btnSeis.addEventListener('click', () => {
+  pantalla.value += '5'
+
+})
+
+btnSiete.addEventListener('click', () => {
+  pantalla.value += '6'
+
+})
+
+btnMulti.addEventListener('click', () => {
+  numeroA = pantalla.value
+  pantalla.value = ''
+  operaciones = 3
+
+})
+
+btnNueve.addEventListener('click', () => {
+  pantalla.value += '7'
+
+
+})
+
+btnDiez.addEventListener('click', () => {
+  pantalla.value += '8'
+ 
+})
+
+btnOnce.addEventListener('click', () => {
+  pantalla.value += '9'
+})
+
+btnDivi.addEventListener('click', () => {
+  numeroA = pantalla.value
+  pantalla.value = ''
+  operaciones = 4
+
+})
+
+btnTrece.addEventListener('click', () => {
+  pantalla.value += '0'
   
-  limpar();
-}
+})
 
-function btn_division(caracter){
-  numeroA = valorVisor;
-  operacao = "/";
-  
-  limpar();
-}
+btnLimpiar.addEventListener('click', () => {
+  pantalla.value = ''
+})
 
-function reset() {
-    // limpar pantalla
-    document.getElementById('pantalla').value = '';
-    valorVisor = 0;
-    operacao = "";
-}
-function limpar(){
-    document.getElementById('pantalla').value = '';
-    
-}
+btnResta.addEventListener('click', () => {
+  numeroA = pantalla.value
+  pantalla.value = ''
+  operaciones = 2
 
-function btn_igual(){
-    numeroB = valorVisor;
-    calcular();
-}
+})
 
-function calcular() {
+btnIgual.addEventListener('click', () => {
+  numeroB = pantalla.value;
+  let resultado = 0;
+  switch (operaciones) {
+    case 1:
+      resultado = parseInt(numeroA) + parseInt(numeroB);
+      pantalla.value = resultado
+      break;
+    case 2:
+      resultado = parseInt(numeroA) - parseInt(numeroB);
+      pantalla.value = resultado
+      break;
+    case 3:
+      resultado = parseInt(numeroA) * parseInt(numeroB);
+      pantalla.value = resultado
+      break;
+    case 4:
+      resultado = parseInt(numeroA) / parseInt(numeroB);
+      pantalla.value = resultado
+      break;
+    default:
+     resultado = 0;
+     numeroA = 0;
+     numeroC= resultado
+  }
+})
 
-    let total = 0;
-    let ultimoTotal = 0;
-      switch(operaciones){
-        case "+":
-          total = parseFloat(numeroA) + parseFloat(numeroB);
-          break;
-        case "-":
-            total = parseFloat(numeroA) - parseFloat(numeroB);
-            break;
-        case "*":
-          total = parseFloat(numeroA) * parseFloat(numeroB);
-          break;
-        case "/":
-          total = parseFloat(numeroA) / parseFloat(numeroB);
-          break;
-      }
-      ultimoTotal = total;
-      reset();
-      document.getElementById('pantalla').value = total;
-      valorVisor = ultimoTotal;
 
-}
+
+
+
+
+
+
+
